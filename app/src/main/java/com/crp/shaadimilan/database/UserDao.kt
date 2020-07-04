@@ -1,10 +1,7 @@
 package com.crp.shaadimilan.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.crp.shaadimilan.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
@@ -16,4 +13,7 @@ interface UserDao {
 
     @Query("SELECT * FROM usermodel")
     fun getAllUsers(): Flow<List<UserModel>>
+
+    @Update
+    fun updateStatus(userModel: UserModel):Int
 }
